@@ -29,8 +29,8 @@ JNIEXPORT jint JNI_OnLoad(JavaVM*, void*) {
         system(("rm " + game_path + '/' + file.path().filename().string()).c_str());
     }
 
-	if (!std::filesystem::is_directory(modules_path) || !std::filesystem::exists(modules_path)) 
-		std::filesystem::create_directories(modules_path);
+    if (!std::filesystem::is_directory(modules_path) || !std::filesystem::exists(modules_path)) 
+        std::filesystem::create_directories(modules_path);
 
     for(const auto& file : std::filesystem::directory_iterator(modules_path)) {
         if(isMod(file.path().filename().string())) {
